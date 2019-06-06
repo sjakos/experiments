@@ -1,12 +1,19 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, deleteItem }) => {
+const todoListStyle = { listStyle: 'None' };
+
+const TodoList = ({ todos, completeTodo, deleteItem }) => {
   return (
     <div>
-      <ul>
+      <ul style={todoListStyle}>
         {Object.keys(todos).map(id => (
-          <TodoItem key={id} deleteItem={deleteItem} todo={todos[id]} />
+          <TodoItem
+            key={id}
+            completeTodo={completeTodo}
+            deleteItem={deleteItem}
+            todo={todos[id]}
+          />
         ))}
       </ul>
     </div>
